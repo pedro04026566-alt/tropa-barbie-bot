@@ -62,7 +62,7 @@ module.exports = {
       return interaction.editReply({ embeds: [criarEmbedErro('Canal não encontrado', 'Não foi possível encontrar o canal de anúncios')] });
     }
 
-    await canal.send({ embeds: [embed] });
+    await canal.send({ content: '<@&1256724723824332962>', embeds: [embed] });
 
     // Registra log
     await registrarLog(client, 'anuncio', interaction.user.id, '', `Anúncio: ${titulo}`);

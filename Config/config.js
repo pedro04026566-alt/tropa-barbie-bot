@@ -40,6 +40,8 @@ module.exports = {
     recruta: '',
     // Cargos autorizados a usar o painel administrativo
     autorizados: ['1256724723841368086'],
+    // Cargo mencionado em anu00fancios
+    mencaoAnuncio: '1256724723824332962',
     // IDs de usu00e1rios com acesso administrativo total (independente de cargo)
     usuariosAdmin: ['827872889113149461'],
   },
