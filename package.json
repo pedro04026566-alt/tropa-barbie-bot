@@ -1,0 +1,20 @@
+{
+  "name": "tropa-barbie-bot",
+  "version": "1.0.0",
+  "description": "Bot profissional para facção FiveM — Tropa da Barbie",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "deploy": "node Utils/deployCommands.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.16.3",
+    "mongoose": "^8.8.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
