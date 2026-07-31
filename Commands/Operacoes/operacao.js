@@ -15,9 +15,9 @@ module.exports = {
     .setName('operacao')
     .setDescription('Agenda uma operação')
     .addStringOption((opt) => opt.setName('titulo').setDescription('Título da operação').setRequired(true))
-    .addStringOption((opt) => opt.setName('descricao').setDescription('Descrição').setRequired(false))
     .addStringOption((opt) => opt.setName('data').setDescription('Data (DD/MM/AAAA)').setRequired(true))
-    .addStringOption((opt) => opt.setName('horario').setDescription('Horário (HH:MM)').setRequired(true)),
+    .addStringOption((opt) => opt.setName('horario').setDescription('Horário (HH:MM)').setRequired(true))
+    .addStringOption((opt) => opt.setName('descricao').setDescription('Descrição').setRequired(false)),
   name: 'operacao',
   category: 'Operacoes',
   requireAuth: true,

@@ -15,9 +15,9 @@ module.exports = {
     .setName('treinamento')
     .setDescription('Agenda um treinamento')
     .addStringOption((opt) => opt.setName('titulo').setDescription('Título do treinamento').setRequired(true))
-    .addStringOption((opt) => opt.setName('descricao').setDescription('Descrição').setRequired(false))
     .addStringOption((opt) => opt.setName('data').setDescription('Data (DD/MM/AAAA)').setRequired(true))
-    .addStringOption((opt) => opt.setName('horario').setDescription('Horário (HH:MM)').setRequired(true)),
+    .addStringOption((opt) => opt.setName('horario').setDescription('Horário (HH:MM)').setRequired(true))
+    .addStringOption((opt) => opt.setName('descricao').setDescription('Descrição').setRequired(false)),
   name: 'treinamento',
   category: 'Operacoes',
   requireAuth: true,
