@@ -3,10 +3,10 @@
  * Aprova uma candidatura de recrutamento.
  */
 
-const config = require('../../Config/config');
-const { criarEmbedSucesso } = require('../../Utils/embeds');
-const { registrarLog } = require('../../Utils/logger');
-const { Recrutamento, Membro } = require('../../Database');
+const config = require('../Config/config');
+const { criarEmbedSucesso } = require('../Utils/embeds');
+const { registrarLog } = require('../Utils/logger');
+const { Recrutamento, Membro } = require('../Database');
 
 module.exports = {
   customId: 'recrutamento_aprovar_',

@@ -4,11 +4,11 @@
  */
 
 const { ChannelType, PermissionFlagsBits, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-const config = require('../../Config/config');
-const { criarEmbedBasica, criarEmbedSucesso } = require('../../Utils/embeds');
-const { registrarLog } = require('../../Utils/logger');
-const { gerarId } = require('../../Utils/helpers');
-const { Ticket } = require('../../Database');
+const config = require('../Config/config');
+const { criarEmbedBasica, criarEmbedSucesso } = require('../Utils/embeds');
+const { registrarLog } = require('../Utils/logger');
+const { gerarId } = require('../Utils/helpers');
+const { Ticket } = require('../Database');
 
 module.exports = {
   customId: 'ticket_motivo',

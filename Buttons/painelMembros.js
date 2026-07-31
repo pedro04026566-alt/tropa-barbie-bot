@@ -4,8 +4,8 @@
  */
 
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-const config = require('../../Config/config');
-const { criarEmbedBasica } = require('../../Utils/embeds');
+const config = require('../Config/config');
+const { criarEmbedBasica } = require('../Utils/embeds');
 
 module.exports = {
   customId: 'painel_membros',

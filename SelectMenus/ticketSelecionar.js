@@ -4,7 +4,7 @@
  */
 
 const { ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder } = require('discord.js');
-const config = require('../../Config/config');
+const config = require('../Config/config');
 
 module.exports = {
   customId: 'ticket_selecionar',

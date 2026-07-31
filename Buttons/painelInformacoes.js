@@ -3,8 +3,8 @@
  * Exibe informações gerais da facção.
  */
 
-const config = require('../../Config/config');
-const { criarEmbedBasica } = require('../../Utils/embeds');
+const config = require('../Config/config');
+const { criarEmbedBasica } = require('../Utils/embeds');
 
 module.exports = {
   customId: 'painel_informacoes',

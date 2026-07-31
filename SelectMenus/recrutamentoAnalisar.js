@@ -4,10 +4,10 @@
  */
 
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-const config = require('../../Config/config');
-const { criarEmbedBasica } = require('../../Utils/embeds');
-const { formatarData } = require('../../Utils/helpers');
-const { Recrutamento } = require('../../Database');
+const config = require('../Config/config');
+const { criarEmbedBasica } = require('../Utils/embeds');
+const { formatarData } = require('../Utils/helpers');
+const { Recrutamento } = require('../Database');
 
 module.exports = {
   customId: 'recrutamento_analisar',

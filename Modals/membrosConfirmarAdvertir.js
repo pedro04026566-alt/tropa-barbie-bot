@@ -3,10 +3,10 @@
  * Processa a advertência do membro com motivo.
  */
 
-const config = require('../../Config/config');
-const { criarEmbedSucesso, criarEmbedAviso } = require('../../Utils/embeds');
-const { registrarLog } = require('../../Utils/logger');
-const { Membro } = require('../../Database');
+const config = require('../Config/config');
+const { criarEmbedSucesso, criarEmbedAviso } = require('../Utils/embeds');
+const { registrarLog } = require('../Utils/logger');
+const { Membro } = require('../Database');
 
 module.exports = {
   customId: 'membros_confirmar_advertir_',

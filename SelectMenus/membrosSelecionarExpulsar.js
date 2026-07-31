@@ -4,9 +4,9 @@
  */
 
 const { ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder } = require('discord.js');
-const config = require('../../Config/config');
-const { criarEmbedBasica } = require('../../Utils/embeds');
-const { Membro } = require('../../Database');
+const config = require('../Config/config');
+const { criarEmbedBasica } = require('../Utils/embeds');
+const { Membro } = require('../Database');
 
 module.exports = {
   customId: 'membros_selecionar_expulsar',

@@ -3,10 +3,10 @@
  * Fecha o ticket atual e deleta o canal.
  */
 
-const config = require('../../Config/config');
-const { criarEmbedSucesso } = require('../../Utils/embeds');
-const { registrarLog } = require('../../Utils/logger');
-const { Ticket } = require('../../Database');
+const config = require('../Config/config');
+const { criarEmbedSucesso } = require('../Utils/embeds');
+const { registrarLog } = require('../Utils/logger');
+const { Ticket } = require('../Database');
 
 module.exports = {
   customId: 'ticket_fechar',

@@ -3,10 +3,10 @@
  * Reprova uma candidatura de recrutamento.
  */
 
-const config = require('../../Config/config');
-const { criarEmbedErro } = require('../../Utils/embeds');
-const { registrarLog } = require('../../Utils/logger');
-const { Recrutamento } = require('../../Database');
+const config = require('../Config/config');
+const { criarEmbedErro } = require('../Utils/embeds');
+const { registrarLog } = require('../Utils/logger');
+const { Recrutamento } = require('../Database');
 
 module.exports = {
   customId: 'recrutamento_reprovar_',

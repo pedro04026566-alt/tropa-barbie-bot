@@ -3,11 +3,11 @@
  * Processa o formulário de recrutamento submetido pelo usuário.
  */
 
-const config = require('../../Config/config');
-const { criarEmbedSucesso, criarEmbedBasica } = require('../../Utils/embeds');
-const { registrarLog } = require('../../Utils/logger');
-const { formatarData } = require('../../Utils/helpers');
-const { Recrutamento } = require('../../Database');
+const config = require('../Config/config');
+const { criarEmbedSucesso, criarEmbedBasica } = require('../Utils/embeds');
+const { registrarLog } = require('../Utils/logger');
+const { formatarData } = require('../Utils/helpers');
+const { Recrutamento } = require('../Database');
 
 module.exports = {
   customId: 'recrutamento_form',

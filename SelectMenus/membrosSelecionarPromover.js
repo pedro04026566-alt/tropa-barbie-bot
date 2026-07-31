@@ -4,10 +4,10 @@
  */
 
 const { ActionRowBuilder, StringSelectMenuBuilder } = require('discord.js');
-const config = require('../../Config/config');
-const { criarEmbedBasica, criarEmbedSucesso } = require('../../Utils/embeds');
-const { registrarLog } = require('../../Utils/logger');
-const { Membro } = require('../../Database');
+const config = require('../Config/config');
+const { criarEmbedBasica, criarEmbedSucesso } = require('../Utils/embeds');
+const { registrarLog } = require('../Utils/logger');
+const { Membro } = require('../Database');
 
 module.exports = {
   customId: 'membros_selecionar_promover',

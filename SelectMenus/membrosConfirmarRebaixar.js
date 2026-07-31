@@ -3,10 +3,10 @@
  * Confirma o rebaixamento do membro ao cargo selecionado.
  */
 
-const config = require('../../Config/config');
-const { criarEmbedSucesso } = require('../../Utils/embeds');
-const { registrarLog } = require('../../Utils/logger');
-const { Membro } = require('../../Database');
+const config = require('../Config/config');
+const { criarEmbedSucesso } = require('../Utils/embeds');
+const { registrarLog } = require('../Utils/logger');
+const { Membro } = require('../Database');
 
 module.exports = {
   customId: 'membros_confirmar_rebaixar_',

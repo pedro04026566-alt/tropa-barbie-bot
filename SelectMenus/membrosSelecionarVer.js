@@ -3,10 +3,10 @@
  * Exibe o perfil completo do membro selecionado.
  */
 
-const config = require('../../Config/config');
-const { criarEmbedBasica } = require('../../Utils/embeds');
-const { formatarData } = require('../../Utils/helpers');
-const { Membro } = require('../../Database');
+const config = require('../Config/config');
+const { criarEmbedBasica } = require('../Utils/embeds');
+const { formatarData } = require('../Utils/helpers');
+const { Membro } = require('../Database');
 
 const cargosIcon = {
   lider: '👑 Líder', sublider: '⭐ Sublíder', admin: '🔧 Admin',

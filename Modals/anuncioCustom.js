@@ -3,9 +3,9 @@
  * Processa um anúncio personalizado via modal.
  */
 
-const config = require('../../Config/config');
-const { criarEmbedBasica, criarEmbedSucesso } = require('../../Utils/embeds');
-const { registrarLog } = require('../../Utils/logger');
+const config = require('../Config/config');
+const { criarEmbedBasica, criarEmbedSucesso } = require('../Utils/embeds');
+const { registrarLog } = require('../Utils/logger');
 
 module.exports = {
   customId: 'anuncio_custom',

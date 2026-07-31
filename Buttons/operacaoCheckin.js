@@ -3,9 +3,9 @@
  * Registra presença confirmada em uma operação.
  */
 
-const config = require('../../Config/config');
-const { criarEmbedSucesso } = require('../../Utils/embeds');
-const { Operacao } = require('../../Database');
+const config = require('../Config/config');
+const { criarEmbedSucesso } = require('../Utils/embeds');
+const { Operacao } = require('../Database');
 
 module.exports = {
   customId: 'op_checkin_',

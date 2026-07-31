@@ -3,10 +3,10 @@
  * Exibe estatísticas gerais da facção.
  */
 
-const config = require('../../Config/config');
-const { criarEmbedBasica } = require('../../Utils/embeds');
-const { Membro, Operacao, Ticket, Economia, Configuracao } = require('../../Database');
-const { formatarMoeda } = require('../../Utils/helpers');
+const config = require('../Config/config');
+const { criarEmbedBasica } = require('../Utils/embeds');
+const { Membro, Operacao, Ticket, Economia, Configuracao } = require('../Database');
+const { formatarMoeda } = require('../Utils/helpers');
 
 module.exports = {
   customId: 'painel_estatisticas',

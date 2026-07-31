@@ -3,10 +3,10 @@
  * Exibe o resumo financeiro da facção.
  */
 
-const config = require('../../Config/config');
-const { criarEmbedBasica } = require('../../Utils/embeds');
-const { formatarMoeda, formatarData } = require('../../Utils/helpers');
-const { Economia, Configuracao } = require('../../Database');
+const config = require('../Config/config');
+const { criarEmbedBasica } = require('../Utils/embeds');
+const { formatarMoeda, formatarData } = require('../Utils/helpers');
+const { Economia, Configuracao } = require('../Database');
 
 module.exports = {
   customId: 'painel_economia',
