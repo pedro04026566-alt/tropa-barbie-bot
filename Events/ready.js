@@ -30,6 +30,7 @@ module.exports = {
     //  REGISTRO AUTOMÁTICO DE COMANDOS SLASH
     // ═══════════════════════════════════════════
     try {
+      // Coleta todos os comandos das subpastas
       const comandos = [];
       const diretorioComandos = path.join(__dirname, '..', 'Commands');
       const subpastas = fs.readdirSync(diretorioComandos, { withFileTypes: true })
@@ -40,28 +41,52 @@ module.exports = {
         const pastaPath = path.join(diretorioComandos, subpasta);
         const arquivos = fs.readdirSync(pastaPath).filter((f) => f.endsWith('.js'));
         for (const arquivo of arquivos) {
-          const comando = require(path.join(pastaPath, arquivo));
-          if (comando.data && comando.data.name) {
-            comandos.push(comando.data.toJSON());
+          try {
+            const comando = require(path.join(pastaPath, arquivo));
+            if (comando.data && comando.data.name) {
+              comandos.push(comando.data.toJSON());
+              console.log(`[Deploy] Comando carregado: /${comando.data.name}`);
+            }
+          } catch (err) {
+            console.error(`[Deploy] Erro ao carregar ${arquivo}:`, err.message);
           }
         }
       }
 
+      console.log(`[Deploy] Total de comandos coletados: ${comandos.length}`);
+
       const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
 
-      // Registra comandos no servidor (guild) específico — atualização instantânea
-      if (process.env.GUILD_ID && process.env.CLIENT_ID) {
-        await rest.put(
-          Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID),
+      const guildId = process.env.GUILD_ID;
+      const clientId = process.env.CLIENT_ID;
+
+      console.log(`[Deploy] GUILD_ID: ${guildId ? '✅ configurado' : '❌ vazio'}`);
+      console.log(`[Deploy] CLIENT_ID: ${clientId ? '✅ configurado' : '❌ vazio'}`);
+      console.log(`[Deploy] TOKEN: ${process.env.TOKEN ? '✅ configurado' : '❌ vazio'}`);
+
+      // Tenta registrar como guild commands (instantâneo) se GUILD_ID estiver configurado
+      if (guildId && clientId) {
+        console.log(`[Deploy] Registrando ${comandos.length} comandos no servidor ${guildId}...`);
+        const data = await rest.put(
+          Routes.applicationGuildCommands(clientId, guildId),
           { body: comandos },
         );
-        console.log(`${config.geral.prefixoLog} ✅ ${comandos.length} comando(s) Slash registrado(s) no servidor!`);
+        console.log(`${config.geral.prefixoLog} ✅ ${data.length} comando(s) Slash registrado(s) no servidor!`);
+      } else if (clientId) {
+        // Sem GUILD_ID — registra globalmente (demora até 1h para aparecer)
+        console.log('[Deploy] GUILD_ID não configurado. Registrando comandos globalmente (pode demorar até 1h)...');
+        const data = await rest.put(
+          Routes.applicationCommands(clientId),
+          { body: comandos },
+        );
+        console.log(`${config.geral.prefixoLog} ✅ ${data.length} comando(s) registrado(s) globalmente!`);
       } else {
-        console.warn(`${config.geral.prefixoLog} ⚠️ GUILD_ID ou CLIENT_ID não configurados — comandos não registrados.`);
-        console.warn(`${config.geral.prefixoLog} ⚠️ Adicione GUILD_ID e CLIENT_ID nas variáveis de ambiente.`);
+        console.error(`${config.geral.prefixoLog} ❌ CLIENT_ID não configurado! Adicione nas variáveis de ambiente.`);
       }
     } catch (erro) {
       console.error(`${config.geral.prefixoLog} ❌ Erro ao registrar comandos:`, erro.message);
+      if (erro.code) console.error('[Deploy] Código do erro:', erro.code);
+      if (erro.status) console.error('[Deploy] Status HTTP:', erro.status);
     }
 
     // Registra log de inicialização
