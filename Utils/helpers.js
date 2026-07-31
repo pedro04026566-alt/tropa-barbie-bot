@@ -7,11 +7,25 @@ const { Membro } = require('../Database');
 
 /**
  * Verifica se um membro tem permissão administrativa.
+ * Checa por ID de usuário direto (usuariosAdmin) e por cargo (autorizados).
  * @param {GuildMember} member - Membro do Discord
  * @returns {boolean}
  */
 function temPermissao(member) {
   if (!member) return false;
+
+  // Verifica por ID de usuário (admins diretos do config)
+  if (config.cargos.usuariosAdmin && config.cargos.usuariosAdmin.includes(member.id)) {
+    return true;
+  }
+
+  // Verifica por IDs de usuário via variável de ambiente (ADMIN_USER_IDS separado por vírgula)
+  const envAdmins = process.env.ADMIN_USER_IDS;
+  if (envAdmins && envAdmins.split(',').map((id) => id.trim()).includes(member.id)) {
+    return true;
+  }
+
+  // Verifica por cargo
   return config.cargos.autorizados.some((roleId) =>
     member.roles.cache.has(roleId),
   );
@@ -83,7 +97,7 @@ function calcularTempoOnline(checkIn) {
   const diff = Date.now() - new Date(checkIn).getTime();
   const horas = Math.floor(diff / 3600000);
   const minutos = Math.floor((diff % 3600000) / 60000);
-  const segundos = Math.floor((diff % 60000) / 1000);
+  const segundos = Math.floor((diff % 60000000) / 1000);
 
   if (horas > 0) return `${horas}h ${minutos}m ${segundos}s`;
   if (minutos > 0) return `${minutos}m ${segundos}s`;

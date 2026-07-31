@@ -40,6 +40,8 @@ module.exports = {
     recruta: 'ID_CARGO_RECRUTA',
     // Cargos autorizados a usar o painel administrativo
     autorizados: ['ID_CARGO_LIDER', 'ID_CARGO_SUBLIDER', 'ID_CARGO_ADMIN'],
+    // IDs de usu00e1rios com acesso administrativo total (independente de cargo)
+    usuariosAdmin: ['827872889113149461'],
   },
 
   // ═══════════════════════════════════════════
