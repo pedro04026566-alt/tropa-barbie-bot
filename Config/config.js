@@ -32,14 +32,14 @@ module.exports = {
   //  IDS DE CARGOS (Substitua pelos IDs reais)
   // ═══════════════════════════════════════════
   cargos: {
-    lider: 'ID_CARGO_LIDER',
+    lider: '1256724723841368086',
     sublider: 'ID_CARGO_SUBLIDER',
     admin: 'ID_CARGO_ADMIN',
     moderador: 'ID_CARGO_MODERADOR',
     membro: 'ID_CARGO_MEMBRO',
     recruta: 'ID_CARGO_RECRUTA',
     // Cargos autorizados a usar o painel administrativo
-    autorizados: ['ID_CARGO_LIDER', 'ID_CARGO_SUBLIDER', 'ID_CARGO_ADMIN'],
+    autorizados: ['1256724723841368086', 'ID_CARGO_SUBLIDER', 'ID_CARGO_ADMIN'],
     // IDs de usu00e1rios com acesso administrativo total (independente de cargo)
     usuariosAdmin: ['827872889113149461'],
   },
@@ -48,17 +48,17 @@ module.exports = {
   //  IDS DE CANAIS (Substitua pelos IDs reais)
   // ═══════════════════════════════════════════
   canais: {
-    boasVindas: 'ID_CANAL_BOAS_VINDAS',
-    regras: 'ID_CANAL_REGRAS',
+    boasVindas: '1256724724113870895',
+    regras: '1256724724386369653',
     anuncios: '1256724724386369652',
-    logs: 'ID_CANAL_LOGS',
-    logsMembros: 'ID_CANAL_LOGS_MEMBROS',
-    logsEconomia: 'ID_CANAL_LOGS_ECONOMIA',
-    recrutamento: 'ID_CANAL_RECRUTAMENTO',
-    aprovados: 'ID_CANAL_APROVADOS',
-    reprovados: 'ID_CANAL_REPROVADOS',
-    tickets: 'ID_CANAL_TICKETS',
-    operacoes: 'ID_CANAL_OPERACOES',
+    logs: '1256724723841368092',
+    logsMembros: '1256724724113870889',
+    logsEconomia: '1256724724113870889',
+    recrutamento: '1256724724113870890',
+    aprovados: '1256724724113870888',
+    reprovados: '1532849365121634334',
+    tickets: '1256724724386369657',
+    operacoes: '1532849909483573362',
     presenca: 'ID_CANAL_PRESENCA',
   },
 
@@ -66,9 +66,9 @@ module.exports = {
   //  CATEGORIAS DE TICKET
   // ═══════════════════════════════════════════
   tickets: {
-    categoriaSuporte: 'ID_CATEGORIA_SUPORTE',
-    categoriaDenuncia: 'ID_CATEGORIA_DENUNCIA',
-    categoriaRecrutamento: 'ID_CATEGORIA_RECRUTAMENTO',
+    categoriaSuporte: '1532850432102240376',
+    categoriaDenuncia: '1532850492605071450',
+    categoriaRecrutamento: '1532850553946636439',
   },
 
   // ═══════════════════════════════════════════
