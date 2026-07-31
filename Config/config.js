@@ -50,7 +50,7 @@ module.exports = {
   canais: {
     boasVindas: 'ID_CANAL_BOAS_VINDAS',
     regras: 'ID_CANAL_REGRAS',
-    anuncios: 'ID_CANAL_ANUNCIOS',
+    anuncios: '1256724724386369652',
     logs: 'ID_CANAL_LOGS',
     logsMembros: 'ID_CANAL_LOGS_MEMBROS',
     logsEconomia: 'ID_CANAL_LOGS_ECONOMIA',
