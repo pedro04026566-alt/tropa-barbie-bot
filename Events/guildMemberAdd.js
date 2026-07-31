@@ -1,37 +1,61 @@
 /**
  * Evento: guildMemberAdd
- * Sistema de boas-vindas personalizado.
+ * Sistema de boas-vindas personalizado — anuncia quando alguém entra no servidor.
  */
 
+const { EmbedBuilder } = require('discord.js');
 const config = require('../Config/config');
-const { criarEmbedBasica } = require('../Utils/embeds');
 const { registrarLog } = require('../Utils/logger');
+const { Membro } = require('../Database');
 
 module.exports = {
   name: 'guildMemberAdd',
   async execute(member, client) {
     try {
       const canalId = config.canais.boasVindas;
-      if (!canalId || canalId === 'ID_CANAL_BOAS_VINDAS') return;
+      if (!canalId) return;
 
       const canal = await client.channels.fetch(canalId).catch(() => null);
       if (!canal) return;
 
-      // Substitui variáveis na mensagem de boas-vindas
-      const mensagem = config.mensagens.boasVindas
-        .replace('{faccao}', config.faccao.nome)
-        .replace('{usuario}', `<@${member.id}>`)
-        .replace('{canalRegras}', `<#${config.canais.regras}>`);
+      // Conta total de membros
+      const totalMembros = member.guild.memberCount;
 
-      const embed = criarEmbedBasica({
-        titulo: `🌸 Bem-vindo(a) à ${config.faccao.nome}!`,
-        descricao: mensagem,
-        cor: config.cores.primaria,
-        thumbnail: member.user.displayAvatarURL({ dynamic: true }),
-        footer: `${config.faccao.nome} | Boas-vindas`,
-      });
+      // Cria embed de boas-vindas estilizada
+      const embed = new EmbedBuilder()
+        .setColor(config.cores.primaria)
+        .setTimestamp()
+        .setTitle('🌸  Novo Membro!')
+        .setDescription(
+          `Bem-vindo(a) à **${config.faccao.nome}**, <@${member.id}>!\n\n` +
+          `✦ ━━━━━━━━━━━━━━━━━━━━━ ✦\n\n` +
+          `▸ **Usuário:** ${member.user.tag}\n` +
+          `▸ **ID:** \`${member.id}\`\n` +
+          `▸ **Conta criada em:** <t:${Math.floor(member.user.createdTimestamp / 1000)}:d>\n\n` +
+          `✦ ━━━━━━━━━━━━━━━━━━━━━ ✦\n\n` +
+          `📜 Leia as regras em <#${config.canais.regras}>\n` +
+          `🎫 Abra um ticket se precisar de ajuda\n\n` +
+          `Você é o membro **#${totalMembros}** da nossa família! 💕`
+        )
+        .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
+        .setFooter({
+          text: `${config.faccao.nome} • Boas-vindas`,
+          iconURL: config.faccao.logo || undefined,
+        });
 
       await canal.send({ content: `<@${member.id}>`, embeds: [embed] });
+
+      // Registra no banco de dados
+      await Membro.findOneAndUpdate(
+        { discordId: member.id },
+        {
+          discordId: member.id,
+          tag: member.user.tag,
+          status: 'ativo',
+          entrouEm: new Date(),
+        },
+        { upsert: true, new: true },
+      );
 
       // Registra log
       await registrarLog(client, 'membro_entrou', '', member.id, `${member.user.tag} entrou no servidor`);
