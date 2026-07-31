@@ -33,13 +33,13 @@ module.exports = {
   // ═══════════════════════════════════════════
   cargos: {
     lider: '1256724723841368086',
-    sublider: 'ID_CARGO_SUBLIDER',
-    admin: 'ID_CARGO_ADMIN',
-    moderador: 'ID_CARGO_MODERADOR',
-    membro: 'ID_CARGO_MEMBRO',
-    recruta: 'ID_CARGO_RECRUTA',
+    sublider: '',
+    admin: '',
+    moderador: '',
+    membro: '',
+    recruta: '',
     // Cargos autorizados a usar o painel administrativo
-    autorizados: ['1256724723841368086', 'ID_CARGO_SUBLIDER', 'ID_CARGO_ADMIN'],
+    autorizados: ['1256724723841368086'],
     // IDs de usu00e1rios com acesso administrativo total (independente de cargo)
     usuariosAdmin: ['827872889113149461'],
   },
@@ -59,7 +59,7 @@ module.exports = {
     reprovados: '1532849365121634334',
     tickets: '1256724724386369657',
     operacoes: '1532849909483573362',
-    presenca: 'ID_CANAL_PRESENCA',
+    presenca: '1532851156227981462',
   },
 
   // ═══════════════════════════════════════════
